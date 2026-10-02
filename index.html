@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tobi Xu v0.1-sicaru — Distribución Rolling Release STEM+ARTS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Serif', 'Noto Serif SC', Georgia, serif; max-width: 820px; margin: 40px auto; padding: 20px 30px; line-height: 1.7; color: #2d3748; background: #fafaf7; }
+    .lang-switch { text-align: right; margin-bottom: 20px; font-size: 0.95em; }
+    .lang-switch a { margin: 0 10px; text-decoration: none; color: #2c5282; font-weight: bold; }
+    .lang-switch a:hover { text-decoration: underline; }
+    .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #2c5282 0%, #4299e1 100%); color: white; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .hero .glyph { font-size: 80px; margin-bottom: 15px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3)); }
+    h1 { font-size: 2.4em; color: #2c5282; border-bottom: 3px solid #4299e1; padding-bottom: 10px; margin-top: 40px; }
+    .hero h1 { color: white; border: none; font-size: 2.8em; margin: 0; }
+    .hero .tagline { font-style: italic; font-size: 1.15em; margin-top: 10px; opacity: 0.95; }
+    h2 { color: #2d3748; margin-top: 35px; font-size: 1.5em; border-left: 4px solid #4299e1; padding-left: 12px; }
+    .download { background: #e53e3e; color: white; padding: 18px 40px; text-decoration: none; border-radius: 5px; display: inline-block; margin: 25px 0; font-size: 1.2em; font-weight: bold; box-shadow: 0 3px 10px rgba(229,62,62,0.3); transition: all 0.2s; }
+    .download:hover { background: #c53030; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(229,62,62,0.4); }
+    .sha { font-family: 'Courier New', monospace; font-size: 0.85em; background: #f7fafc; padding: 15px; border-radius: 3px; border-left: 4px solid #4299e1; word-break: break-all; }
+    ul { padding-left: 25px; }
+    li { margin: 10px 0; }
+    code { background: #edf2f7; padding: 3px 8px; border-radius: 3px; font-size: 0.88em; font-family: 'Courier New', monospace; }
+    .badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 15px 0; }
+    .badge { display: inline-block; padding: 5px 14px; border-radius: 15px; font-size: 0.85em; font-weight: bold; }
+    .badge-version { background: #48bb78; color: white; }
+    .badge-rolling { background: #ed8936; color: white; font-style: italic; }
+    .badge-plasma { background: #9f7aea; color: white; }
+    .rolling-box { background: linear-gradient(135deg, #fef5e7 0%, #fff9f0 100%); border-left: 5px solid #ed8936; padding: 20px 25px; margin: 25px 0; border-radius: 4px; }
+    .rolling-box h3 { margin-top: 0; color: #c05621; font-size: 1.2em; }
+    footer { margin-top: 50px; padding-top: 25px; border-top: 2px solid #e2e8f0; color: #718096; font-size: 0.9em; text-align: center; }
+    .quote { font-style: italic; color: #4a5568; font-size: 1.1em; margin: 25px 0; padding: 15px 20px; border-left: 4px solid #cbd5e0; background: #f7fafc; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 20px 0; }
+    .col-card { background: white; padding: 20px; border-radius: 6px; border-top: 3px solid #4299e1; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } .hero { padding: 30px 15px; } }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <a href="/">🇲🇽 Español</a> | 
+    <a href="/zh">🇨🇳 中文</a> | 
+    <a href="/en">🇬🇧 English</a>
+  </div>
+
+  <div class="hero">
+    <div class="glyph">🦎</div>
+    <h1>Tobi Xu v0.1-sicaru</h1>
+    <div class="tagline">"El río no se apresura, guardián: se encauza."</div>
+    <div class="badges">
+      <span class="badge badge-version">v0.1</span>
+      <span class="badge badge-rolling">🔄 Rolling Release</span>
+      <span class="badge badge-plasma">KDE Plasma 6</span>
+    </div>
+    <a href="https://archive.org/details/tobixu-v0.1-sicaru" class="download">⬇️ Descargar ISO (4.3G)</a>
+  </div>
+
+  <h1>Distribución Linux con cerebro STEM + oficio ARTS</h1>
+  <p><strong>Tobi Xu (托比·许)</strong> es una distribución Linux diseñada para <strong>científicos, ingenieros, artistas y creadores</strong>. Combina un cerebro STEM completo con un oficio ARTS profesional, todo envuelto en una identidad visual trilingüe que honra el español hablado en México, el chino mandarín y el inglés.</p>
+
+  <div class="rolling-box">
+    <h3>🔄 Rolling Release: siempre al día</h3>
+    <p>Tobi Xu está basada en <strong>Debian sid</strong>, la rama <em>unstable</em> de Debian. Esto significa que recibes las últimas versiones de todo el software sin esperar a un "release" mayor. Una vez instalada, tu sistema <strong>nunca queda obsoleto</strong>: una actualización continua te mantiene en la vanguardia.</p>
+    <p><strong>Ventajas:</strong> software fresco, kernel reciente, drivers nuevos, librerías actualizadas.<br>
+    <strong>Consideración:</strong> requiere usuarios dispuestos a convivir con la vanguardia y hacer mantenimiento ocasional.</p>
+  </div>
+
+  <h2>¿Qué incluye?</h2>
+  <div class="two-col">
+    <div class="col-card">
+      <h3>🧪 Cerebro STEM</h3>
+      <ul>
+        <li><strong>texstudio</strong> — editor LaTeX profesional</li>
+        <li><strong>frescobaldi</strong> — editor de partituras LilyPond</li>
+        <li><strong>libreoffice</strong> — suite ofimática completa</li>
+        <li><strong>qgis</strong> — sistemas de información geográfica</li>
+        <li><strong>octave</strong> — cálculo numérico (compatible MATLAB)</li>
+        <li><strong>gnugo, gnuchess</strong> — juegos estratégicos</li>
+        <li><strong>12 sgt-puzzles</strong> — rompecabezas lógicos</li>
+      </ul>
+    </div>
+    <div class="col-card">
+      <h3>🎨 Oficio ARTS</h3>
+      <ul>
+        <li><strong>kdenlive</strong> — edición de video profesional</li>
+        <li><strong>obs-studio</strong> — streaming y grabación</li>
+        <li><strong>vlc</strong> — reproductor multimedia</li>
+        <li><strong>handbrake</strong> — conversión de video</li>
+        <li><strong>krita</strong> — pintura digital (Recommends)</li>
+        <li><strong>ardour</strong> — estación de audio digital (Recommends)</li>
+        <li><strong>musescore</strong> — notación musical (Recommends)</li>
+      </ul>
+    </div>
+  </div>
+
+  <ul>
+    <li><strong>🎭 Identidad visual trilingüe:</strong> velo (Plymouth) + puerta (SDDM) + splash, en español, 中文 e inglés</li>
+    <li><strong>🚀 Primer arranque guiado:</strong> Tobi Xu Pulsar te da la bienvenida en tu idioma</li>
+    <li><strong>📦 2603 paquetes</strong> instalados, configurados y probados</li>
+  </ul>
+
+  <h2>Verificación SHA256</h2>
+  <div class="sha">
+    ca8c52151c6674ecdc8a302393974c91fc518e0e171cd0172cdbbc761790734f &nbsp; tobixu-0.1-sicaru-rc22n-20261002-amd64.iso
+  </div>
+  <p><em>Verifica la integridad con: <code>sha256sum -c SHA256SUMS-rc22n</code></em></p>
+
+  <h2>Instalación</h2>
+  <ol>
+    <li>Descarga la ISO desde Archive.org</li>
+    <li>Grábala en USB con <code>dd</code> o <a href="https://www.balena.io/etcher/">Balena Etcher</a></li>
+    <li>Arranca en modo UEFI (desactiva Secure Boot si es necesario)</li>
+    <li>Pruébala en modo live (sin instalar)</li>
+    <li>Instala con Calamares (puerta <em>Instalar Tobi Xu</em> en el escritorio)</li>
+  </ol>
+
+  <h2>Paquetes en Recommends (instalación post-arranque)</h2>
+  <p>Algunos paquetes que estaban en transición ABI al momento del build se instalan después del primer arranque, ya con sid vivo:</p>
+  <ul>
+    <li><code>sudo apt install julia r-base octave qgis</code> — transiciones LLVM/R</li>
+    <li><code>sudo apt install krita ardour musescore lmms</code> — transiciones ABI multimedia</li>
+    <li><code>sudo apt install texlive-full sagemath root-system paraview blender</code> — complementos opcionales</li>
+  </ul>
+
+  <h2>Código fuente</h2>
+  <p>Todo el código de Tobi Xu es libre y está en <a href="https://github.com/mlmateos/tobixu">GitHub</a> (tag <code>v0.1-sicaru</code>). Incluye scripts de build, metapaquetes, temas visuales y documentación completa.</p>
+
+  <footer>
+    <p>© 2026 Manuel López Mateos · v0.1-sicaru (2026-10-02)</p>
+    <p class="quote">"El río no se apresura, guardián: se encauza."</p>
+    <p><strong>Arquitectura:</strong> tobixu.xyz (web) + Archive.org (ISO) + GitHub (código)</p>
+  </footer>
+</body>
+</html>
+
