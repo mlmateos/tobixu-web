@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}" {% if dir %}dir="{{ dir }}"{% endif %}>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Serif', 'Noto Serif SC', Georgia, serif; max-width: 820px; margin: 40px auto; padding: 20px 30px; line-height: 1.7; color: #2d3748; background: #fafaf7; }
+    [dir="rtl"] body { direction: rtl; }
+    .lang-switch { text-align: {% if dir == 'rtl' %}left{% else %}right{% endif %}; margin-bottom: 20px; font-size: 0.95em; }
+    .lang-switch a { margin: 0 10px; text-decoration: none; color: #2c5282; font-weight: bold; }
+    .lang-switch a:hover { text-decoration: underline; }
+    .hero { text-align: center; padding: 50px 20px; background: url('/assets/orbita-noche.png') center/cover no-repeat; color: white; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.35); }
+    .hero .glyph { font-size: 80px; margin-bottom: 15px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3)); }
+    h1 { font-size: 2.4em; color: #2c5282; border-bottom: 3px solid #4299e1; padding-bottom: 10px; margin-top: 40px; }
+    .hero h1 { color: white; border: none; font-size: 2.8em; margin: 0; }
+    .hero .tagline { font-style: italic; font-size: 1.15em; margin-top: 10px; opacity: 0.95; }
+    h2 { color: #2d3748; margin-top: 35px; font-size: 1.5em; border-left: 4px solid #4299e1; padding-left: 12px; }
+    [dir="rtl"] h2 { border-left: none; border-right: 4px solid #4299e1; padding-left: 0; padding-right: 12px; }
+    .download { background: #e53e3e; color: white; padding: 18px 40px; text-decoration: none; border-radius: 5px; display: inline-block; margin: 25px 0; font-size: 1.2em; font-weight: bold; box-shadow: 0 3px 10px rgba(229,62,62,0.3); transition: all 0.2s; }
+    .download:hover { background: #c53030; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(229,62,62,0.4); }
+    .sha { font-family: 'Courier New', monospace; font-size: 0.85em; background: #f7fafc; padding: 15px; border-radius: 3px; border-left: 4px solid #4299e1; word-break: break-all; margin: 10px 0; }
+    [dir="rtl"] .sha { border-left: none; border-right: 4px solid #4299e1; }
+    ul { padding-left: 25px; }
+    [dir="rtl"] ul { padding-left: 0; padding-right: 25px; }
+    li { margin: 10px 0; }
+    code { background: #edf2f7; padding: 3px 8px; border-radius: 3px; font-size: 0.88em; font-family: 'Courier New', monospace; }
+    .badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 15px 0; }
+    .badge { display: inline-block; padding: 5px 14px; border-radius: 15px; font-size: 0.85em; font-weight: bold; }
+    .badge-rolling { background: #ed8936; color: white; font-style: italic; }
+    .badge-debian { background: #d70a53; color: white; }
+    .badge-trilingual { background: #4299e1; color: white; }
+    .variants { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 30px 0; }
+    .variant-card { background: white; padding: 25px; border-radius: 8px; border-top: 4px solid #4299e1; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.2s; }
+    .variant-card:hover { transform: translateY(-4px); box-shadow: 0 4px 15px rgba(0,0,0,0.12); }
+    .variant-card.plasma { border-top-color: #9f7aea; }
+    .variant-card.gnome { border-top-color: #4299e1; }
+    .variant-card.xfce { border-top-color: #48bb78; }
+    .variant-card.lxqt { border-top-color: #ed8936; }
+    .variant-card h3 { margin-top: 0; font-size: 1.6em; }
+    .variant-card .size { color: #718096; font-size: 0.95em; margin: 10px 0; }
+    .variant-card ul { margin: 15px 0; }
+    .rolling-box { background: linear-gradient(135deg, #fef5e7 0%, #fff9f0 100%); border-left: 5px solid #ed8936; padding: 20px 25px; margin: 25px 0; border-radius: 4px; }
+    [dir="rtl"] .rolling-box { border-left: none; border-right: 5px solid #ed8936; }
+    .rolling-box h3 { margin-top: 0; color: #c05621; font-size: 1.2em; }
+    footer { margin-top: 50px; padding-top: 25px; border-top: 2px solid #e2e8f0; color: #718096; font-size: 0.9em; text-align: center; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 20px 0; }
+    .col-card { background: white; padding: 20px; border-radius: 6px; border-top: 3px solid #4299e1; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    @media (max-width: 700px) { .two-col, .variants { grid-template-columns: 1fr; } .hero { padding: 30px 15px; } }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    {% for lang_item in languages %}
+    <a href="{{ lang_item.url }}">{{ lang_item.label }}</a>{% if not loop.last %} | {% endif %}
+    {% endfor %}
+  </div>
+  <div class="hero">
+    <div class="glyph"><img src="/assets/glifo.png" alt="{{ hero_glyph_alt }}" style="width:256px;height:auto;max-width:70%;"></div>
+    <h1>{{ hero_title }}</h1>
+    <div class="tagline">"{{ tagline }}"</div>
+    <div class="badges">
+      <span class="badge badge-rolling">🔄 {{ badge_rolling }}</span>
+      <span class="badge badge-debian">Debian sid</span>
+      <span class="badge badge-trilingual">{{ badge_trilingual }}</span>
+    </div>
+  </div>
+  <h1>{{ main_heading }}</h1>
+  <p>{{ main_intro }}</p>
+  <div class="rolling-box">
+    <h3>🔄 {{ rolling_heading }}</h3>
+    <p>{{ rolling_text_1 }}</p>
+    <p><strong>{{ rolling_advantages_label }}</strong> {{ rolling_advantages }}<br>
+    <strong>{{ rolling_consideration_label }}</strong> {{ rolling_consideration }}</p>
+  </div>
+  <h2>{{ variants_heading }}</h2>
+  <div class="variants">
+    {% for variant in variants %}
+    <div class="variant-card {{ variant.name }}">
+      <h3>{{ variant.title }}</h3>
+      <div class="size">{{ variant.size }}</div>
+      <p>{{ variant.description }}</p>
+      <ul>
+        {% for feature in variant.features %}
+        <li>{{ feature }}</li>
+        {% endfor %}
+      </ul>
+      {% if variant.download_url %}
+      <a href="{{ variant.download_url }}" class="download">{{ variant.download_label }}</a>
+      {% else %}
+      <p><em>{{ variant.coming_soon }}</em></p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <h2>{{ features_heading }}</h2>
+  <div class="two-col">
+    <div class="col-card">
+      <h3>🧪 {{ stem_heading }}</h3>
+      <ul>
+        {% for item in stem_items %}
+        <li><strong>{{ item.name }}</strong> — {{ item.desc }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-card">
+      <h3>🎨 {{ arts_heading }}</h3>
+      <ul>
+        {% for item in arts_items %}
+        <li><strong>{{ item.name }}</strong> — {{ item.desc }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <p><em>{{ features_note }}</em></p>
+  <h2>{{ sha_heading }}</h2>
+  <div class="sha">{{ sha_gnome }} &nbsp; tobixu-gnome-rolling-20261019-amd64.iso</div>
+  <div class="sha">{{ sha_plasma }} &nbsp; tobixu-plasma-rolling-20261005-amd64.iso</div>
+  <p>{{ sha_note }}</p>
+  <h2>{{ install_heading }}</h2>
+  <ol>
+    {% for step in install_steps %}
+    <li>{{ step }}</li>
+    {% endfor %}
+  </ol>
+  <h2>{{ source_heading }}</h2>
+  <p>{{ source_text }}</p>
+  <footer>
+    <p>&copy; 2026 Manuel López Mateos</p>
+    <p>"{{ footer_tagline }}"</p>
+    <p>{{ footer_architecture }}</p>
+    <p>{{ footer_collab }}</p>
+  </footer>
+</body>
+</html>

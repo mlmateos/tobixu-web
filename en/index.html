@@ -1,144 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tobi Xu v0.1-sicaru — Rolling Release STEM+ARTS GNU/Linux Distro</title>
+  <title>TobiXu — Rolling Release Distribution Family STEM+ARTS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Noto Serif', 'Noto Serif SC', Georgia, serif; max-width: 820px; margin: 40px auto; padding: 20px 30px; line-height: 1.7; color: #2d3748; background: #fafaf7; }
+    [dir="rtl"] body { direction: rtl; }
     .lang-switch { text-align: right; margin-bottom: 20px; font-size: 0.95em; }
     .lang-switch a { margin: 0 10px; text-decoration: none; color: #2c5282; font-weight: bold; }
     .lang-switch a:hover { text-decoration: underline; }
-    .hero { text-align: center; padding: 50px 20px; background: url('../assets/orbita-noche.png') center/cover no-repeat; color: white; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.35); }
+    .hero { text-align: center; padding: 50px 20px; background: url('/assets/orbita-noche.png') center/cover no-repeat; color: white; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.35); }
     .hero .glyph { font-size: 80px; margin-bottom: 15px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3)); }
     h1 { font-size: 2.4em; color: #2c5282; border-bottom: 3px solid #4299e1; padding-bottom: 10px; margin-top: 40px; }
     .hero h1 { color: white; border: none; font-size: 2.8em; margin: 0; }
     .hero .tagline { font-style: italic; font-size: 1.15em; margin-top: 10px; opacity: 0.95; }
     h2 { color: #2d3748; margin-top: 35px; font-size: 1.5em; border-left: 4px solid #4299e1; padding-left: 12px; }
+    [dir="rtl"] h2 { border-left: none; border-right: 4px solid #4299e1; padding-left: 0; padding-right: 12px; }
     .download { background: #e53e3e; color: white; padding: 18px 40px; text-decoration: none; border-radius: 5px; display: inline-block; margin: 25px 0; font-size: 1.2em; font-weight: bold; box-shadow: 0 3px 10px rgba(229,62,62,0.3); transition: all 0.2s; }
     .download:hover { background: #c53030; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(229,62,62,0.4); }
-    .sha { font-family: 'Courier New', monospace; font-size: 0.85em; background: #f7fafc; padding: 15px; border-radius: 3px; border-left: 4px solid #4299e1; word-break: break-all; }
+    .sha { font-family: 'Courier New', monospace; font-size: 0.85em; background: #f7fafc; padding: 15px; border-radius: 3px; border-left: 4px solid #4299e1; word-break: break-all; margin: 10px 0; }
+    [dir="rtl"] .sha { border-left: none; border-right: 4px solid #4299e1; }
     ul { padding-left: 25px; }
+    [dir="rtl"] ul { padding-left: 0; padding-right: 25px; }
     li { margin: 10px 0; }
     code { background: #edf2f7; padding: 3px 8px; border-radius: 3px; font-size: 0.88em; font-family: 'Courier New', monospace; }
     .badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 15px 0; }
     .badge { display: inline-block; padding: 5px 14px; border-radius: 15px; font-size: 0.85em; font-weight: bold; }
-    .badge-version { background: #48bb78; color: white; }
     .badge-rolling { background: #ed8936; color: white; font-style: italic; }
-    .badge-plasma { background: #9f7aea; color: white; }
+    .badge-debian { background: #d70a53; color: white; }
+    .badge-trilingual { background: #4299e1; color: white; }
+    .variants { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 30px 0; }
+    .variant-card { background: white; padding: 25px; border-radius: 8px; border-top: 4px solid #4299e1; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.2s; }
+    .variant-card:hover { transform: translateY(-4px); box-shadow: 0 4px 15px rgba(0,0,0,0.12); }
+    .variant-card.plasma { border-top-color: #9f7aea; }
+    .variant-card.gnome { border-top-color: #4299e1; }
+    .variant-card.xfce { border-top-color: #48bb78; }
+    .variant-card.lxqt { border-top-color: #ed8936; }
+    .variant-card h3 { margin-top: 0; font-size: 1.6em; }
+    .variant-card .size { color: #718096; font-size: 0.95em; margin: 10px 0; }
+    .variant-card ul { margin: 15px 0; }
     .rolling-box { background: linear-gradient(135deg, #fef5e7 0%, #fff9f0 100%); border-left: 5px solid #ed8936; padding: 20px 25px; margin: 25px 0; border-radius: 4px; }
+    [dir="rtl"] .rolling-box { border-left: none; border-right: 5px solid #ed8936; }
     .rolling-box h3 { margin-top: 0; color: #c05621; font-size: 1.2em; }
     footer { margin-top: 50px; padding-top: 25px; border-top: 2px solid #e2e8f0; color: #718096; font-size: 0.9em; text-align: center; }
-    .quote { font-style: italic; color: #4a5568; font-size: 1.1em; margin: 25px 0; padding: 15px 20px; border-left: 4px solid #cbd5e0; background: #f7fafc; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 20px 0; }
     .col-card { background: white; padding: 20px; border-radius: 6px; border-top: 3px solid #4299e1; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } .hero { padding: 30px 15px; } }
+    @media (max-width: 700px) { .two-col, .variants { grid-template-columns: 1fr; } .hero { padding: 30px 15px; } }
   </style>
 </head>
 <body>
   <div class="lang-switch">
+    
     <a href="/">🇲🇽 Español</a> | 
-    <a href="/zh">🇨🇳 中文</a> | 
-    <a href="/en">🇬🇧 English</a>
+    
+    <a href="/en">🇬🇧 English</a> | 
+    
+    <a href="/zh">🇨🇳 中文</a>
+    
   </div>
-
   <div class="hero">
-    <div class="glyph"><img src="../assets/glifo.png" alt="Glifo TobiXu" style="width:256px;height:auto;max-width:70%;"></div>
-    <h1>Tobi Xu v0.1-sicaru</h1>
-    <div class="tagline">"The river does not rush, guardian: it flows."</div>
+    <div class="glyph"><img src="/assets/glifo.png" alt="TobiXu Glyph" style="width:256px;height:auto;max-width:70%;"></div>
+    <h1>TobiXu</h1>
+    <div class="tagline">"The river does not rush, guardian: it finds its channel."</div>
     <div class="badges">
-      <span class="badge badge-version">v0.1</span>
       <span class="badge badge-rolling">🔄 Rolling Release</span>
-      <span class="badge badge-plasma">KDE Plasma 6</span>
-      <span class="badge" style="background:#2166ac;color:white;">GNOME (default rc24)</span>
+      <span class="badge badge-debian">Debian sid</span>
+      <span class="badge badge-trilingual">🌐 Trilingual</span>
     </div>
-    <a href="https://archive.org/details/tobixu-v0.1-sicaru" class="download">⬇️ Download ISO (2.1G)</a>
   </div>
-
-  <div class="rolling-box" style="background:linear-gradient(135deg,#e6fffa 0%,#f0fff4 100%);border-left-color:#38a169;">
-    <h3 style="color:#276749;">📦 rc24 (2026-10-09) — GNOME by default</h3>
-    <p>New release with <strong>GNOME 47 as default desktop</strong> (gdm3 + embedded EGO extensions: appmenu-is-back and trayIconsReloaded). KDE Plasma remains as alternative in the session selector. F67-F77 saga cured across 8 bakes. See <a href="https://github.com/mlmateos/tobixu/blob/main/docs/MasterAct.md" style="color:#276749;">full acta</a>.</p>
-  </div>
-
-  <h1>GNU/Linux Distro with STEM brain + ARTS craft</h1>
-  <p><strong>Tobi Xu (托比·许)</strong> is a GNU/Linux distro designed for <strong>scientists, engineers, artists, and creators</strong>. It combines a complete STEM brain with a professional ARTS craft, all wrapped in a trilingual visual identity that honors Mexican Spanish, Mandarin Chinese, and English.</p>
-
+  <h1>GNU/Linux with a STEM brain + ARTS craft</h1>
+  <p><strong>TobiXu (托比·许)</strong> is a family of GNU/Linux distributions designed for <strong>scientists, engineers, artists and creators</strong>. It combines a complete STEM brain with a professional ARTS craft, wrapped in a trilingual visual identity that honors Mexican Spanish, Mandarin Chinese and English.</p>
   <div class="rolling-box">
     <h3>🔄 Rolling Release: always up to date</h3>
-    <p>Tobi Xu is based on <strong>Debian sid</strong>, the <em>unstable</em> branch of Debian. This means you get the latest versions of all software without waiting for a major release. Once installed, your system <strong>never becomes outdated</strong>: a continuous update stream keeps you at the cutting edge.</p>
-    <p><strong>Benefits:</strong> fresh software, recent kernels, new drivers, updated libraries.<br>
-    <strong>Consideration:</strong> requires users comfortable with the cutting edge and occasional maintenance.</p>
+    <p>TobiXu is based on <strong>Debian sid</strong>, the <em>unstable</em> branch of Debian. You receive the latest versions of all software without waiting for a major release. Once installed, your system <strong>never becomes obsolete</strong>: continuous updates keep you at the cutting edge.</p>
+    <p><strong>Advantages:</strong> fresh software, recent kernel, new drivers, updated libraries.<br>
+    <strong>Consideration:</strong> requires users willing to live on the cutting edge and perform occasional maintenance.</p>
   </div>
-
-  <h2>What's included?</h2>
+  <h2>Desktop variants</h2>
+  <div class="variants">
+    
+    <div class="variant-card plasma">
+      <h3>🎨 KDE Plasma</h3>
+      <div class="size">📦 ~4.4 GB</div>
+      <p>Complete TobiXu edition with KDE Plasma: the full STEM and ARTS package set preinstalled.</p>
+      <ul>
+        
+        <li>Complete STEM brain (LaTeX, Octave, QGIS, LibreOffice)</li>
+        
+        <li>Professional ARTS craft (Kdenlive, OBS, Krita, Ardour)</li>
+        
+        <li>KDE Plasma 6 as default desktop</li>
+        
+        <li>2603 packages installed and configured</li>
+        
+      </ul>
+      
+      <a href="https://archive.org/details/tobixu-plasma" class="download">⬇️ Download TobiXu Plasma (ISO)</a>
+      
+    </div>
+    
+    <div class="variant-card gnome">
+      <h3>🧊 GNOME</h3>
+      <div class="size">📦 ~1.4 GB</div>
+      <p>Base TobiXu edition with GNOME 47: STEM and ARTS packages installable via apt.</p>
+      <ul>
+        
+        <li>GNOME 47 as default desktop</li>
+        
+        <li>Proven rolling release base</li>
+        
+        <li>Minimal and efficient installation</li>
+        
+        <li>TobiXu packages installable via apt</li>
+        
+      </ul>
+      
+      <a href="https://archive.org/details/tobixu-gnome" class="download">⬇️ Download TobiXu GNOME (ISO)</a>
+      
+    </div>
+    
+    <div class="variant-card xfce">
+      <h3>🖥️ XFCE</h3>
+      <div class="size">📦 ~1.2 GB (estimated)</div>
+      <p>Base structure with XFCE. Light and efficient.</p>
+      <ul>
+        
+        <li>XFCE as default desktop</li>
+        
+        <li>Proven rolling release base</li>
+        
+        <li>Ideal for older hardware</li>
+        
+        <li>TobiXu packages installable via apt</li>
+        
+      </ul>
+      
+      <p><em>Coming soon</em></p>
+      
+    </div>
+    
+    <div class="variant-card lxqt">
+      <h3>⚡ LXQt</h3>
+      <div class="size">📦 ~1.0 GB (estimated)</div>
+      <p>Base structure with LXQt. Maximum efficiency.</p>
+      <ul>
+        
+        <li>LXQt as default desktop</li>
+        
+        <li>Proven rolling release base</li>
+        
+        <li>Minimal resource consumption</li>
+        
+        <li>TobiXu packages installable via apt</li>
+        
+      </ul>
+      
+      <p><em>Coming soon</em></p>
+      
+    </div>
+    
+  </div>
+  <h2>What does it include?</h2>
   <div class="two-col">
     <div class="col-card">
-      <h3>🧪 STEM Brain</h3>
+      <h3>🧪 STEM brain</h3>
       <ul>
+        
         <li><strong>texstudio</strong> — professional LaTeX editor</li>
+        
         <li><strong>frescobaldi</strong> — LilyPond score editor</li>
+        
         <li><strong>libreoffice</strong> — complete office suite</li>
+        
         <li><strong>qgis</strong> — geographic information systems</li>
-        <li><strong>octave</strong> — numerical computation (MATLAB compatible)</li>
-        <li><strong>gnugo, gnuchess</strong> — strategic games</li>
+        
+        <li><strong>octave</strong> — numerical computing (MATLAB compatible)</li>
+        
+        <li><strong>gnugo, gnuchess</strong> — strategy games</li>
+        
         <li><strong>12 sgt-puzzles</strong> — logic puzzles</li>
+        
       </ul>
     </div>
     <div class="col-card">
-      <h3>🎨 ARTS Craft</h3>
+      <h3>🎨 ARTS craft</h3>
       <ul>
+        
         <li><strong>kdenlive</strong> — professional video editing</li>
+        
         <li><strong>obs-studio</strong> — streaming and recording</li>
+        
         <li><strong>vlc</strong> — multimedia player</li>
+        
         <li><strong>handbrake</strong> — video conversion</li>
+        
         <li><strong>krita</strong> — digital painting (Recommends)</li>
+        
         <li><strong>ardour</strong> — digital audio workstation (Recommends)</li>
+        
         <li><strong>musescore</strong> — music notation (Recommends)</li>
+        
       </ul>
     </div>
   </div>
-
-  <ul>
-    <li><strong>🎭 Trilingual visual identity:</strong> veil (Plymouth) + door (SDDM) + splash, in Spanish, 中文, and English</li>
-    <li><strong>🚀 Guided first boot:</strong> trilingual door + Plasma tutorial + Pulsar auto-install</li>
-    <li><strong>📦 2603 packages</strong> installed, configured, and tested</li>
-  </ul>
-
+  <p><em>The STEM and ARTS package sets grow continuously: each bake of the river adds new tools to the brain and the craft.</em></p>
   <h2>SHA256 verification</h2>
-  <div class="sha">
-    e5ab4430f04b5918eb0dc78b1cb429c58fba3724855aea71dadcb03746140038 &nbsp; tobixu-0.1-sicaru-rc25-20261010-amd64.iso
-  </div>
-  <p><em>Verify integrity with: <code>sha256sum -c SHA256SUMS-rc25</code></em></p>
-
-  <h2>Installation</h2>
+  <div class="sha">3486ab151dfcb22962736c3de1430f6c478d072b7e99defa3f5331714bb2639d &nbsp; tobixu-gnome-rolling-20261019-amd64.iso</div>
+  <div class="sha">c5fa1276dba7764305bb5a70aef3ef5af7d4fd1128355f211485d74531bd2699 &nbsp; tobixu-plasma-rolling-20261005-amd64.iso</div>
+  <p>Verify integrity after download: <code>sha256sum -c &lt;file&gt;.sha256</code></p>
+  <h2>Installation (base variants)</h2>
   <ol>
+    
     <li>Download the ISO from Archive.org</li>
-    <li>Burn to USB with <code>dd</code> or <a href="https://www.balena.io/etcher/">Balena Etcher</a></li>
+    
+    <li>Burn it to USB with <code>dd</code> or <a href="https://www.balena.io/etcher/">Balena Etcher</a></li>
+    
     <li>Boot in UEFI mode (disable Secure Boot if needed)</li>
-    <li>Try in live mode (without installing)</li>
-    <li>Install with Calamares (<em>Install Tobi Xu</em> door on desktop)</li>
+    
+    <li>Try it in live mode (without installing)</li>
+    
+    <li>Install with Calamares (the <em>Install TobiXu</em> door on the desktop)</li>
+    
+    <li>After first boot, install the TobiXu packages:<br><code>sudo apt update && sudo apt install tobixu-stem tobixu-arts</code></li>
+    
   </ol>
-
-  <h2>Recommends packages (post-boot installation)</h2>
-  <p>Some packages that were in ABI transition at build time are installed after first boot, with live sid:</p>
-  <ul>
-    <li><code>sudo apt install julia r-base octave qgis</code> — LLVM/R transitions</li>
-    <li><code>sudo apt install krita ardour musescore lmms</code> — multimedia ABI transitions</li>
-    <li><code>sudo apt install texlive-full sagemath root-system paraview blender</code> — optional complements</li>
-  </ul>
-
   <h2>Source code</h2>
-  <p>All Tobi Xu code is free and available on <a href="https://github.com/mlmateos/tobixu">GitHub</a> (tag <code>v0.1-sicaru</code>). Includes build scripts, metapackages, visual themes, and complete documentation.</p>
-
+  <p>All TobiXu code is free and lives on <a href="https://github.com/mlmateos/tobixu">GitHub</a>. It includes build scripts, metapackages, visual themes and complete documentation.</p>
   <footer>
-    <p>© 2026 Manuel López Mateos · v0.1-sicaru (2026-10-02)</p>
-    <p class="quote">"The river does not rush, guardian: it flows."</p>
-    <p><strong>Architecture:</strong> tobixu.xyz (web) + Archive.org (ISO) + GitHub (code)</p>
-    <p style="font-size:0.85em;color:#718096;margin-top:20px;">Developed with the collaboration of Qwen (Alibaba Tongyi Lab).</p>
+    <p>&copy; 2026 Manuel López Mateos</p>
+    <p>"The river does not rush, guardian: it finds its channel."</p>
+    <p>Architecture: tobixu.xyz (web) + Archive.org (ISO) + GitHub (code)</p>
+    <p>Developed with the collaboration of Qwen (Alibaba Tongyi Lab).</p>
   </footer>
 </body>
 </html>
-
