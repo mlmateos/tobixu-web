@@ -36,6 +36,7 @@ variants:
       - "Instalación mínima y eficiente"
       - "Paquetería tobixu instalable vía apt"
     download_url: "https://archive.org/details/tobixu-gnome"
+    note: "Re-horneado 2026-10-30 (vg2d): glifo cuadrado 256x256, rio verificado con firma unica (7E69...3154), papel Letter de fabrica, TeXstudio sellado. Reemplaza a tobixu-gnome-rolling-20261019-amd64.iso. Deuda conocida (ola v0.5): sin plymouth, greeter sin fondo orbita."
     download_label: "⬇️ Descargar TobiXu GNOME (ISO)"
   - name: "xfce"
     title: "🖥️ XFCE"

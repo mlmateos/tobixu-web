@@ -36,6 +36,7 @@ variants:
       - "最小且高效的安装"
       - "TobiXu 软件包可通过 apt 安装"
     download_url: "https://archive.org/details/tobixu-gnome"
+    note: "2026-10-30 重新烘焙（vg2d）：256x256 方形字形、单一签名（7E69…3154）验证之河、出厂 Letter 纸张、TeXstudio 已封印。替换 tobixu-gnome-rolling-20261019-amd64.iso。已知债务（v0.5 波）：无 plymouth、greeter 无轨道背景。"
     download_label: "⬇️ 下载 TobiXu GNOME (ISO)"
   - name: "xfce"
     title: "🖥️ XFCE"
