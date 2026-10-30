@@ -94,7 +94,7 @@ arts_items:
   - name: "musescore"
     desc: "音乐记谱（Recommends）"
 sha_heading: "SHA256 校验"
-sha_gnome: "3486ab151dfcb22962736c3de1430f6c478d072b7e99defa3f5331714bb2639d"
+sha_gnome: "a6a7ae4f6bbc0d3e5b8666ca3c062ba2201ce9fc8f883c63d18e0a05a1d9065c"
 sha_plasma: "c5fa1276dba7764305bb5a70aef3ef5af7d4fd1128355f211485d74531bd2699"
 sha_note: "下载后校验完整性：<code>sha256sum -c &lt;archivo&gt;.sha256</code>"
 install_heading: "安装（基础变体）"
